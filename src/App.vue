@@ -1,5 +1,6 @@
 <template>
   <div id="app" >
+    <button @click="created">点我</button>
     <y-header></y-header>
     <div id="main" class="clear">
       <router-view class="left" style="width: 1000px"></router-view>
@@ -22,6 +23,17 @@ export default {
     yRight,
     yFooter,
     ypublic
+  },
+  methods: {
+    created: function () {
+      console.log(111111)
+      this.$http.get(' https://cnodejs.org/api/v1 ', function (data, status, request) {
+        if (status === 200) {
+          console.log(data)
+          this.users = data
+        }
+      })
+    }
   }
 }
 </script>

@@ -33,13 +33,6 @@
 </template>
 <script>
   export default {
-    ready: function () {
-      this.$http.get('http://httpbin.org/ip', function (data, status, request) {
-        console.log(data)
-        this.$set('origin', data)
-      }).error(function (data, status, request) {
-      })
-    }
   }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
