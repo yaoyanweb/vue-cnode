@@ -1,6 +1,7 @@
 <template>
   <div id="app" >
-    <button @click="created">点我</button>
+    <button>点我</button>
+    <div v-for="x in posts.body.data">{{x.title}}</div>
     <y-header></y-header>
     <div id="main" class="clear">
       <router-view class="left" style="width: 1000px"></router-view>
@@ -12,11 +13,11 @@
 </template>
 
 <script>
-
 import yHeader from './components/yheader'
 import yRight from './components/yright'
 import yFooter from './components/yfooter'
 import ypublic from './assets/css/public.css'
+
 export default {
   components: {
     yHeader,
@@ -24,16 +25,24 @@ export default {
     yFooter,
     ypublic
   },
-  methods: {
-    created: function () {
-      console.log(111111)
-      this.$http.get(' https://cnodejs.org/api/v1 ', function (data, status, request) {
-        if (status === 200) {
-          console.log(data)
-          this.users = data
-        }
-      })
+  data () {
+    return {
+      posts: [{}],
+      aaa: '1111111111111'
     }
+  },
+  mounted: function () {
+    // GET request
+    this.$http.get('https://cnodejs.org/api/v1/topics').then(
+      (info) => {
+        console.log(info)
+        this.posts = info
+      },
+      (info) => {
+        console.log(info)
+      })
+  },
+  methods: {
   }
 }
 </script>
