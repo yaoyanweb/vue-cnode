@@ -9,20 +9,24 @@
           <a href="/?tab=ask" class="topic-tab ">问答</a>
           <a href="/?tab=job" class="topic-tab ">招聘</a></div>
         <div class="inner no-padding">
-          <div id="topic_list">
+          <div id="topic_list" v-for="x in posts.data">
             <div class="cell">
               <a class="user_avatar pull-left" href="/user/i5ting">
-                <img src="https://avatars0.githubusercontent.com/u/3118295?v=3&amp;s=120" title="i5ting"></a>
+                <img v-bind:src=x.author.avatar_url v-bind:title=x.author.loginname>
+              </a>
               <span class="reply_count pull-left">
-                <span class="count_of_replies" title="回复数">71</span>
+                <span class="count_of_replies" title="回复数">{{x.reply_count}}</span>
                 <span class="count_seperator">/</span>
-                <span class="count_of_visits" title="点击数">17794</span></span>
-              <a class="last_time pull-right" href="/topic/58eee565a92d341e48cfe7fc#5923d0799e32cc84569a725b">
+                <span class="count_of_visits" title="点击数">{{x.visit_count}}</span></span>
+              <a class="last_time pull-right" href="">
                 <img class="user_small_avatar" src="https://avatars3.githubusercontent.com/u/26704801?v=3&amp;s=120">
                 <span class="last_active_time">7 小时前</span></a>
               <div class="topic_title_wrapper">
                 <span class="put_top">置顶</span>
-                <a class="topic_title" href="/topic/58eee565a92d341e48cfe7fc" title="2017，我们来聊聊 Node.js">2017，我们来聊聊 Node.js</a></div>
+                <router-link :to="{ name: 'Content', params: {content: x.content}}">
+                  <a class="topic_title"  href="javascript:;"  v-bind:title=x.title >{{x.title}}</a>
+                </router-link>
+              </div>
             </div>
           </div>
 
@@ -33,6 +37,24 @@
 </template>
 <script>
   export default {
+    data () {
+      return {
+        posts: [{}]
+      }
+    },
+    mounted: function () {
+      // GET request
+      this.$http.get('https://cnodejs.org/api/v1/topics').then(
+        (data) => {
+          console.log(data)
+          this.posts = data.body
+        },
+        (data) => {
+          console.log(data)
+        })
+    },
+    methods: {
+    }
   }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
