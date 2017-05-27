@@ -1,10 +1,14 @@
 <template>
-<div v-html="$route.params.content">
-</div>
+<div v-html="content"></div>
 </template>
 
 <script>
   export default {
+    data () {
+      return {
+        content: this.$route.params.content
+      }
+    },
     created: function () {
       var content = this.$route.params.content
       console.log(content, 1111)
