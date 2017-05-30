@@ -1,17 +1,16 @@
 <template>
-<div v-html="content"></div>
+<div>
+	<h3>{{title}}</h3>
+	<div v-html="content"></div>
+</div>
 </template>
-
 <script>
   export default {
     data () {
       return {
-        content: this.$route.params.content
+        content: this.$route.query.content,
+        title: this.$route.query.title
       }
-    },
-    created: function () {
-      var content = this.$route.params.content
-      console.log(content, 1111)
     }
   }
 </script>

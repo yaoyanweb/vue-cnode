@@ -1,13 +1,21 @@
 <template>
   <div class="hello">
     <div id="content" style="margin-right: 0;text-align: left">
-      <div class="panel">
+      <div class="panel clear">
         <div class="header">
           <a href="/?tab=all" class="topic-tab current-tab">全部</a>
           <a href="/?tab=good" class="topic-tab ">精华</a>
           <a href="/?tab=share" class="topic-tab ">分享</a>
           <a href="/?tab=ask" class="topic-tab ">问答</a>
-          <a href="/?tab=job" class="topic-tab ">招聘</a></div>
+          <a href="/?tab=job" class="topic-tab ">招聘</a>
+          <select class="right w80" style="position:relative;top:-4px;"  @change="get_page()">
+            <option>10</option>
+            <option>20</option>
+            <option>30</option>
+            <option>40</option>
+          </select>
+          <span class="right f18 mr5">page:</span>
+        </div>
         <div class="inner no-padding">
           <div id="topic_list" v-for="x in posts.data">
             <div class="cell">
@@ -23,7 +31,7 @@
                 <span class="last_active_time">7 小时前</span></a>
               <div class="topic_title_wrapper">
                 <span class="put_top">置顶</span>
-                <router-link :to="{ name: 'Content', params: {content: x.content}}">
+                <router-link :to="{ name: 'Content', query: {content: x.content,title: x.title}}">
                   <a class="topic_title"  href="javascript:;"  v-bind:title=x.title >{{x.title}}</a>
                 </router-link>
               </div>

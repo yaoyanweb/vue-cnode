@@ -2,7 +2,7 @@
   <div id="app" >
     <y-header></y-header>
     <div id="main" class="clear">
-      <router-view class="left" style="width: 1000px"></router-view>
+      <router-view class="left" style="width: 1000px;background:#fff"></router-view>
       <y-right class="right"></y-right>
       <div class="clear"></div>
     </div>
