@@ -1,6 +1,6 @@
 <template>
 <div>
-	<h3>{{title}}</h3>
+	<h3 class="mt20 mb30">{{title}}</h3>
 	<div v-html="content"></div>
 </div>
 </template>
@@ -11,6 +11,9 @@
         content: this.$route.query.content,
         title: this.$route.query.title
       }
+    },
+    created: function () {
+      console.log(this.title)
     }
   }
 </script>
