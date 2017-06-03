@@ -56,9 +56,9 @@
     },
     mounted: function () {
       // GET request
-      this.$http.get('https://cnodejs.org/api/v1/topics').then(
+      this.$http.get('https://cnodejs.org/api/v1/topics', {page: 40, tab: 'ask', limit: 10, mdrender: 'true'}).then(
         (data) => {
-          console.log(data)
+          console.log(data, 2222222)
           this.posts = data.body
         },
         (data) => {
@@ -68,9 +68,9 @@
     methods: {
       page: function () {
         let num = this.num
-        this.$http.get('https://cnodejs.org/api/v1/topics', {page: num, tab: 'ask', limit: 10, mdrender: 'true'}).then(
+        this.$http.get('https://cnodejs.org/api/v1/topics', {page: 40, tab: 'ask', limit: 10, mdrender: 'true'}).then(
           (data) => {
-            console.log(data)
+            console.log(data, 1111)
             this.posts = data.body
           },
           (data) => {
