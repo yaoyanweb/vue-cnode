@@ -55,7 +55,8 @@ a,a:focus,a:active,a:hover,a:link,a:visited{text-decoration:none;color:inherit;}
 .fon14{font-size:14px;}
 .f16{font-size:16px;}
 .f18{font-size:18px;}
-
+/*手*/
+.cu {  cursor: pointer;}
 /*间距*/
 .nomargin{margin:0 !important;}
 .mauto{margin:auto;}

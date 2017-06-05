@@ -2,21 +2,8 @@
   <div class="hello">
     <div id="content" style="margin-right: 0;text-align: left">
       <div class="panel">
-        <div class="header clear">
-          <a href="/?tab=all" class="topic-tab current-tab">全部</a>
-          <a href="/?tab=good" class="topic-tab ">精华</a>
-          <a href="/?tab=share" class="topic-tab ">分享</a>
-          <a href="/?tab=ask" class="topic-tab ">问答</a>
-          <a href="/?tab=job" class="topic-tab ">招聘</a>
-          <div class="right">
-            <span>page:</span>
-            <select class="w80" @change="page()" v-model="num">
-              <option value="10">10</option>
-              <option value="20">20</option>
-              <option value="30">30</option>
-              <option value="40">40</option>
-            </select>
-          </div>
+        <div class="header clear " >
+          <a class="topic-tab cu "  v-bind:class="{ active:true }" v-for="(tit, index) in title" @click="tab(index)">{{tit}}</a>
           <div class="clear"></div>
         </div>
         <div class="inner no-padding">
@@ -33,7 +20,8 @@
                 <img class="user_small_avatar" src="https://avatars3.githubusercontent.com/u/26704801?v=3&amp;s=120">
                 <span class="last_active_time">7 小时前</span></a>
               <div class="topic_title_wrapper">
-                <span class="put_top">置顶</span>
+                <span class="put_top" v-if="x.top">置顶</span>
+                <span class="put_top" v-if="x.good">精华</span>
                 <router-link :to="{ name: 'Content', query: {content: x.content,title:x.title}}">
                   <a class="topic_title"  href="javascript:;"  v-bind:title=x.title >{{x.title}}</a>
                 </router-link>
@@ -51,14 +39,21 @@
     data () {
       return {
         posts: [{}],
-        num: '10'
+        num: 40,
+        title: {
+          all: '全部',
+          ask: '问答',
+          job: '招聘',
+          good: '精华',
+          share: '分享',
+          dev: '测试'
+        }
       }
     },
     mounted: function () {
       // GET request
-      this.$http.get('https://cnodejs.org/api/v1/topics', {page: 40, tab: 'ask', limit: 10, mdrender: 'true'}).then(
+      this.$http.get('https://cnodejs.org/api/v1/topics').then(
         (data) => {
-          console.log(data, 2222222)
           this.posts = data.body
         },
         (data) => {
@@ -66,20 +61,29 @@
         })
     },
     methods: {
-      page: function () {
-        let num = this.num
-        this.$http.get('https://cnodejs.org/api/v1/topics', {page: 40, tab: 'ask', limit: 10, mdrender: 'true'}).then(
+      tab: function (key) {
+        this.num = 10
+        this.$http.get('https://cnodejs.org/api/v1/topics?tab=' + key).then(
           (data) => {
-            console.log(data, 1111)
+            console.log(data, key)
             this.posts = data.body
           },
           (data) => {
-            console.log(data)
           })
-        console.log(num, 11111)
       }
     }
   }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>h1, h2 { font-weight: normal; } ul { list-style-type: none; padding: 0; } li { display: inline-block; margin: 0 10px; } a { color: #42b983; }</style>
+<style scoped>
+  h1, h2 { font-weight: normal; }
+  ul { list-style-type: none; padding: 0; }
+  li { display: inline-block; margin: 0 10px; }
+  a { color: #42b983; }
+  .active{
+    background-color: #80bd01;
+    color: #fff;
+    padding: 3px 4px;
+    border-radius: 3px
+  }
+</style>
