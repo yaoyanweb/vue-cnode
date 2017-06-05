@@ -3,7 +3,7 @@
     <div id="content" style="margin-right: 0;text-align: left">
       <div class="panel">
         <div class="header clear " >
-          <a class="topic-tab cu "  v-bind:class="{ active:true }" v-for="(tit, index) in title" @click="tab(index)">{{tit}}</a>
+          <a class="topic-tab cu "  v-bind:class="{ active:tit.style }" v-for="(tit, index) in title" @click="tab(index)">{{tit.name}}</a>
           <div class="clear"></div>
         </div>
         <div class="inner no-padding">
@@ -40,14 +40,14 @@
       return {
         posts: [{}],
         num: 40,
-        title: {
-          all: '全部',
-          ask: '问答',
-          job: '招聘',
-          good: '精华',
-          share: '分享',
-          dev: '测试'
-        }
+        title: [
+          {name: '全部', type: 'all', style: true},
+          {name: '问答', type: 'ask', style: false},
+          {name: '招聘', type: 'all', style: false},
+          {name: '精华', type: 'good', style: false},
+          {name: '分享', type: 'share', style: false},
+          {name: '测试', type: 'dev', style: false}
+        ]
       }
     },
     mounted: function () {
@@ -62,8 +62,13 @@
     },
     methods: {
       tab: function (key) {
+        for (let x in this.title) {
+          this.title[x].style = false
+        };
+        let tab = this.title[key].type
+        this.title[key].style = true
         this.num = 10
-        this.$http.get('https://cnodejs.org/api/v1/topics?tab=' + key).then(
+        this.$http.get('https://cnodejs.org/api/v1/topics?tab=' + tab).then(
           (data) => {
             console.log(data, key)
             this.posts = data.body
