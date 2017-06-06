@@ -22,7 +22,7 @@
 
 
            <li><a href="/signup">注册</a></li>
-           <li><a href="/signin">登录</a></li>
+           <li><a href="/Login">登录</a></li>
 
          </ul>
          <a class="btn btn-navbar" id="responsive-sidebar-trigger">

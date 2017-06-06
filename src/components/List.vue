@@ -42,11 +42,11 @@
         num: 40,
         title: [
           {name: '全部', type: 'all', style: true},
-          {name: '问答', type: 'ask', style: false},
-          {name: '招聘', type: 'all', style: false},
           {name: '精华', type: 'good', style: false},
           {name: '分享', type: 'share', style: false},
-          {name: '测试', type: 'dev', style: false}
+          {name: '问答', type: 'ask', style: false},
+          {name: '招聘', type: 'all', style: false},
+          {name: '客户端测试', type: 'dev', style: false}
         ]
       }
     },
