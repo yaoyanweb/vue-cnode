@@ -19,17 +19,7 @@
     },
     methods: {
       login: function () {
-        if (this.token === '' || this.token === null) {
-          alert('token不能为空！')
-          return
-        }
-        this.$http.post('https://cnodejs.org/api/v1/accesstoken', { accesstoken: this.token }).then(
-          (data) => {
-            console.log(data.body)
-          },
-          (data) => {
-            alert(data.body.error_msg)
-          })
+        this.$root.eventHub.$emit('aaa', '11111111111')
       }
     }
   }

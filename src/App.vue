@@ -21,6 +21,9 @@ export default {
     yFooter,
     ypublic
   },
+  created: function () {
+    this.$root.eventHub.$on('aaa', function (data) {  console.log(data) })
+  },
   methods: {
   }
 }
