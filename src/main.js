@@ -4,7 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Vueresource from 'vue-resource'
+import Vuex from 'vuex'
 
+Vue.use(Vuex)
 Vue.config.productionTip = false
 
 Vue.use(Vueresource)
@@ -15,4 +17,4 @@ new Vue({
   template: '<App/>',
   components: { App }
 })
-window.Bus = new Vue()
+
