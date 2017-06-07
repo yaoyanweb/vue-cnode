@@ -19,6 +19,7 @@
     },
     methods: {
       login: function () {
+        alert('Bus')
         if (this.token === '' || this.token === null) {
           alert('token不能为空！')
           return

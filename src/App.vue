@@ -14,7 +14,6 @@ import yHeader from './components/yheader'
 import yRight from './components/yright'
 import yFooter from './components/yfooter'
 import ypublic from './assets/css/public.css'
-
 export default {
   components: {
     yHeader,

@@ -15,3 +15,4 @@ new Vue({
   template: '<App/>',
   components: { App }
 })
+window.Bus = new Vue()
