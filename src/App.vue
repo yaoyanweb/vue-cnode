@@ -1,5 +1,5 @@
 <template>
-  <div id="app" >
+  <div id="app">
     <y-header></y-header>
     <div id="main" class="clear">
       <router-view class="left" style="width: 100%;background:#fff"></router-view>
@@ -11,18 +11,14 @@
 
 <script>
 import yHeader from './components/yheader'
-import yRight from './components/yright'
 import yFooter from './components/yfooter'
 import ypublic from './assets/css/public.css'
+import aaa from './components/aaa'
 export default {
   components: {
     yHeader,
-    yRight,
     yFooter,
-    ypublic
-  },
-  created: function () {
-    this.$root.eventHub.$on('aaa', function (data) {  console.log(data) })
+    ypublic,
   },
   methods: {
   }

@@ -19,7 +19,9 @@
     },
     methods: {
       login: function () {
-        this.$root.eventHub.$emit('aaa', '11111111111')
+        store.state.count = this.token
+        store.commit('increment')
+        console.log(store.state.count) // -> 1
       }
     }
   }

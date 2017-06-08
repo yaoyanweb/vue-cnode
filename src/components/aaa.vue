@@ -32,11 +32,13 @@
     export default {
       data () {
         return {
-          ccc: ''
+          ccc: '11111111111111111111111'
         }
       },
-      computed: function () {
-        this.ccc = store.state.count
+      mounted: function () {
+        this.$root.eventHub.$on('aaa', function (data) {
+            this.ccc = data
+        })
       },
     }
 </script>
