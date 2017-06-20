@@ -1,19 +1,25 @@
 <template>
 <div>
-	<h3 class="mt20 mb30">{{title}}</h3>
-	<div v-html="content"></div>
+  <h3 class="mt20 mb30">{{con.title}}</h3>
+  <div v-html="con.content"></div>
 </div>
 </template>
 <script>
   export default {
     data () {
       return {
-        content: this.$route.query.content,
-        title: this.$route.query.title
+        id: this.$route.query.id,
+        con: [{}]
       }
     },
     created: function () {
-      console.log(this.title)
+      this.$http.get(`https://cnodejs.org/api/v1/topic/` + this.id).then(
+        (info) => {
+          this.con = info.body.data
+        },
+        (info) => {
+          console.log(info)
+        })
     }
   }
 </script>

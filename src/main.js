@@ -5,25 +5,31 @@ import App from './App'
 import router from './router'
 import Vueresource from 'vue-resource'
 import Vuex from 'vuex'
-
 Vue.config.productionTip = false
 Vue.use(Vuex)
 Vue.use(Vueresource)
 /* eslint-disable no-new */
-  window. store = new Vuex.Store({
-    state: {
-      count: 0
+const store = new Vuex.Store({
+  state: {
+    loginname: '',
+    avatar_url:'',
+    id: '',
+    user_success:true
+  },
+  mutations: {
+    changeTab(state, user) {
+      state.loginname  = user.body.loginname
+      state.avatar_url  = user.body.avatar_url
+      state.id  = user.body.id
+      state.user_success  = user.body.success
     },
-    mutations: {
-      increment (state) {
-        alert(state.count)
-      }
-    }
+  },
+
 })
 new Vue({
   el: '#app',
   router,
-  Vuex,
+  store,
   template: '<App/>',
   components: { App },
   data: {

@@ -22,7 +22,7 @@
               <div class="topic_title_wrapper">
                 <span class="put_top" v-if="x.top">置顶</span>
                 <span class="put_top" v-if="x.good">精华</span>
-                <router-link :to="{ name: 'Content', query: {content: x.content,title:x.title}}">
+                <router-link :to="{ name: 'Content', query: {id: x.id}}">
                   <a class="topic_title"  href="javascript:;"  v-bind:title=x.title >{{x.title}}</a>
                 </router-link>
               </div>
@@ -67,7 +67,6 @@
         };
         let tab = this.title[key].type
         this.title[key].style = true
-        this.num = 10
         this.$http.get('https://cnodejs.org/api/v1/topics?tab=' + tab).then(
           (data) => {
             console.log(data, key)

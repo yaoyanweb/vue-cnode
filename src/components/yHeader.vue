@@ -3,19 +3,22 @@
    <div class="navbar">
      <div class="navbar-inner">
        <div class="container">
-         <a class="brand" href="/">
-           <img src="//o4j806krb.qnssl.com/public/images/cnodejs_light.svg">
-         </a>
-         <form id="search_form" class="navbar-search" action="/search">
-           <input type="text" id="q" name="q" class="search-query span3" value="" v-model="ccc">
-         </form>
+           <router-link class="brand" to="/">
+             <img src="//o4j806krb.qnssl.com/public/images/cnodejs_light.svg">
+           </router-link>
+         <input   class="search-query span3"  v-model="tit">
          <ul class="nav pull-right">
-           <li><a href="/">首页</a></li>
+           <li><router-link to="/">首页</router-link></li>
            <li><a href="/getstart">新手入门</a></li>
            <li><a href="/api">API</a></li>
            <li><a href="/about" target="">关于</a></li>
            <li><a href="/signup">注册</a></li>
-           <li><a href="/Login">登录</a></li>
+           <li>
+              <router-link to="/login" >
+                <span v-if="user_font">登录</span>
+              </router-link>
+           </li>
+           <li><router-link to="/login" v-if="user_font==false">{{this.$store.state.loginname}}</router-link></li>
          </ul>
          <a class="btn btn-navbar" id="responsive-sidebar-trigger">
            <span class="icon-bar"></span>
@@ -32,12 +35,25 @@
     export default {
       data () {
         return {
-          ccc: ''
+          ccc: 222,
+          tit:'',
+          user_font: true
         }
       },
-      computed: function () {
-        this.ccc = store.state.count
+      computed: {
+        getUser() {
+          return this.$store.state.loginname;
+        }
       },
+      watch: {
+        getUser(val) {
+          this.user_font = false
+
+        }
+      },
+      methods: {
+
+      }
     }
 </script>
 

@@ -1,60 +1,56 @@
 <template>
   <div id="sidebar">
-
     <div class="panel">
-
+      <div class="header">
+        <span class="col_fade">个人信息</span>
+      </div>
       <div class="inner">
-        <p>CNode：Node.js专业中文社区</p>
+        <div class="user_card">
+          <div>
+            <a class="user_avatar" href="/user/yaoyanweb">
+              <img src="https://avatars1.githubusercontent.com/u/23372574?v=3&amp;s=120" title="yaoyanweb">
+            </a>
+            <span class="user_name"><a class="dark" href="/user/yaoyanweb">yaoyanweb</a></span>
 
-        <div>
-          您可以
-          <a href="/signin">登录</a>
-          或
-          <a href="/signup">注册</a>
-          , 也可以
-          <a href="/auth/github">
-          <span class="span-info">
-            通过 GitHub 登录
-          </span>
-          </a>
+            <div class="board clearfix">
+              <div class="floor">
+                <span class="big">积分: 0 </span>
+              </div>
+            </div>
+            <div class="space clearfix"></div>
+            <span class="signature">
+        “
+            这家伙很懒，什么个性签名都没有留下。
+        ”
+    </span>
+          </div>
         </div>
+
       </div>
 
     </div>
-
-
-
-
+    <div class="panel">
+      <div class="inner">
+        <router-link to="/add">
+          <span class="span-success">发布话题</span>
+        </router-link>
+      </div>
+    </div>
 
     <div class="panel">
       <div class="inner ads">
 
-
+        <a href="https://alinode.aliyun.com/?ref=cnode" target="_blank" class="banner sponsor_outlink" data-label="alinode">
+          <img src="//dn-cnode.qbox.me/Fn4D6BhOTz1IswvmzeZ1q7QW1ls_">
+        </a>
+        <div class="sep10"></div>
 
         <a href="http://www.ucloud.cn/site/active/gift.html?utm_source=cnodejs&amp;utm_medium=content_pic_pc&amp;utm_campaign=multicloud&amp;utm_content=gift&amp;ytag=cnodejs" target="_blank" class="banner sponsor_outlink" data-label="ucloud-banner">
           <img src="//dn-cnode.qbox.me/FgQS-GQDfqwAD_v0NuhyYUOUk5MG">
         </a>
 
-
-        <div class="sep10"></div>
-
-        <a href="https://0x6.me/CnodeAD" target="_blank" class="banner sponsor_outlink" data-label="huoqiu">
-          <img src="//dn-cnode.qbox.me/Fh-dDBC360-fT8gaefK0p_hmx_zv">
-        </a>
-
-
-        <div class="sep10"></div>
-
-        <a href="https://alinode.aliyun.com/?ref=cnode" target="_blank" class="banner sponsor_outlink" data-label="alinode">
-          <img src="//dn-cnode.qbox.me/Fn4D6BhOTz1IswvmzeZ1q7QW1ls_">
-        </a>
-
       </div>
     </div>
-
-
-
-
     <div class="panel">
       <div class="header">
         <span class="col_fade">无人回复的话题</span>
@@ -63,23 +59,23 @@
 
         <ul class="unstyled">
           <li>
-            <div><a class="dark topic_title" href="/topic/59242cd7855efbac2cf7a23b" title="疑似nodejs内存泄露的一种情况，websocket连接断开后，仍然占有一定内存。">疑似nodejs内存泄露的一种情况，websocket连接断开后，仍然占有一定内存。</a>
+            <div><a class="dark topic_title" href="/topic/5948e61dff5813233faada72" title="request爬虫设置代理，总是报错求助">request爬虫设置代理，总是报错求助</a>
             </div>
           </li>
           <li>
-            <div><a class="dark topic_title" href="/topic/59241fb1855efbac2cf7a235" title="使用node-gyp 报错 ，不知道怎么解决，请予以指导一下">使用node-gyp 报错 ，不知道怎么解决，请予以指导一下</a>
+            <div><a class="dark topic_title" href="/topic/5948d3789079357b642b2990" title="进行定时任务，发现一个奇怪的现象，调试模式和正式运行的打印结果顺序不同">进行定时任务，发现一个奇怪的现象，调试模式和正式运行的打印结果顺序不同</a>
             </div>
           </li>
           <li>
-            <div><a class="dark topic_title" href="/topic/592415afba8670562a40f3f1" title="Node翻译工具">Node翻译工具</a>
+            <div><a class="dark topic_title" href="/topic/5948d3275ee4f56e642e88be" title="使用Node做了一些好玩的东西【Node-Lab】【持续完善中】">使用Node做了一些好玩的东西【Node-Lab】【持续完善中】</a>
             </div>
           </li>
           <li>
-            <div><a class="dark topic_title" href="/topic/5923ba5c855efbac2cf7a207" title="node 接入银联支付 不知道如何获取cerId">node 接入银联支付 不知道如何获取cerId</a>
+            <div><a class="dark topic_title" href="/topic/5948d139325c502917ef0c1f" title="安装heapdump报错 求解答。">安装heapdump报错 求解答。</a>
             </div>
           </li>
           <li>
-            <div><a class="dark topic_title" href="/topic/592398559e32cc84569a7228" title="vuet插件之route：实现简易版vue-cnode，实现列表点击详情返回后显示之前的数据">vuet插件之route：实现简易版vue-cnode，实现列表点击详情返回后显示之前的数据</a>
+            <div><a class="dark topic_title" href="/topic/5948cb669079357b642b2988" title="JavaScript中的递归">JavaScript中的递归</a>
             </div>
           </li>
 
@@ -100,11 +96,11 @@
 
         <ol>
           <li>
-            <span class="top_score">18585</span>
+            <span class="top_score">18895</span>
             <span class="user_name"><a href="/user/i5ting">i5ting</a></span>
           </li>
           <li>
-            <span class="top_score">14420</span>
+            <span class="top_score">14510</span>
             <span class="user_name"><a href="/user/alsotang">alsotang</a></span>
           </li>
           <li>
@@ -120,23 +116,23 @@
             <span class="user_name"><a href="/user/yakczh">yakczh</a></span>
           </li>
           <li>
-            <span class="top_score">5280</span>
+            <span class="top_score">5360</span>
             <span class="user_name"><a href="/user/DevinXian">DevinXian</a></span>
           </li>
           <li>
-            <span class="top_score">5155</span>
+            <span class="top_score">5180</span>
             <span class="user_name"><a href="/user/magicdawn">magicdawn</a></span>
           </li>
           <li>
-            <span class="top_score">4520</span>
-            <span class="user_name"><a href="/user/captainblue2013">captainblue2013</a></span>
-          </li>
-          <li>
-            <span class="top_score">4500</span>
+            <span class="top_score">4855</span>
             <span class="user_name"><a href="/user/imhered">imhered</a></span>
           </li>
           <li>
-            <span class="top_score">4400</span>
+            <span class="top_score">4550</span>
+            <span class="user_name"><a href="/user/captainblue2013">captainblue2013</a></span>
+          </li>
+          <li>
+            <span class="top_score">4410</span>
             <span class="user_name"><a href="/user/fengmk2">fengmk2</a></span>
           </li>
 
@@ -144,8 +140,6 @@
 
       </div>
     </div>
-
-
     <div class="panel">
       <div class="header">
         <span class="col_fade">友情社区</span>
