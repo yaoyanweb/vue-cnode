@@ -44,7 +44,7 @@
     export default {
       data () {
         return {
-          tab: '',
+          tab: 'share',
           con_text: '',
           title_text:''
         }

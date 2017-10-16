@@ -14,11 +14,16 @@
            <li><a href="/about" target="">关于</a></li>
            <li><a href="/signup">注册</a></li>
            <li>
-              <router-link to="/login" >
-                <span v-if="user_font">登录</span>
+              <router-link to="/login" v-show="this.$store.state.loginname == ''">
+                <span >登录</span>
               </router-link>
            </li>
-           <li><router-link to="/login" v-if="user_font==false">{{this.$store.state.loginname}}</router-link></li>
+
+           <li @click=quit()>
+             <router-link to="/" v-show="this.$store.state.loginname !== ''">
+                退出
+             </router-link>
+           </li>
          </ul>
          <a class="btn btn-navbar" id="responsive-sidebar-trigger">
            <span class="icon-bar"></span>
@@ -43,16 +48,24 @@
       computed: {
         getUser() {
           return this.$store.state.loginname;
+          return this.$store.state.avatar_url;
+          return this.$store.state.success;
         }
       },
       watch: {
         getUser(val) {
-          this.user_font = false
-
+          return this.$store.state.loginname;
+          return this.$store.state.avatar_url;
+          return this.$store.state.success;
         }
       },
       methods: {
-
+          quit:function () {
+            localStorage['token']= ""
+            this.$store.state.loginname = '';
+            this.$store.state.avatar_url = '';
+            this.$store.state.success = '';
+          }
       }
     }
 </script>

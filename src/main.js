@@ -14,7 +14,7 @@ const store = new Vuex.Store({
     loginname: '',
     avatar_url:'',
     id: '',
-    user_success:true
+    user_success:'false'
   },
   mutations: {
     changeTab(state, user) {
