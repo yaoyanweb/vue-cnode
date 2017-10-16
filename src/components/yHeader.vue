@@ -9,10 +9,8 @@
          <input   class="search-query span3"  v-model="tit">
          <ul class="nav pull-right">
            <li><router-link to="/">首页</router-link></li>
-           <li><a href="/getstart">新手入门</a></li>
-           <li><a href="/api">API</a></li>
-           <li><a href="/about" target="">关于</a></li>
-           <li><a href="/signup">注册</a></li>
+           <li><router-link to="/threshold">新手入门</router-link><</li>
+           <li><router-link to="/api">API</router-link></li>
            <li>
               <router-link to="/login" v-show="this.$store.state.loginname == ''">
                 <span >登录</span>

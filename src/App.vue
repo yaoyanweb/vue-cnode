@@ -18,13 +18,17 @@ import yFooter from './components/yfooter'
 import ypublic from './assets/css/public.css'
 import yRight from './components/yRight.vue'
 import add from './components/add.vue'
+import threshold from './components/threshold.vue'
+import api from './components/api.vue'
 export default {
   components: {
     yHeader,
     yFooter,
     ypublic,
     yRight,
-    add
+    add,
+    threshold,
+    api
   },
   data () {
     return {

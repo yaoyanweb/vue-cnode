@@ -4,6 +4,8 @@ import List from '@/components/List'
 import Content from '@/components/Content'
 import Login from '@/components/yLogin'
 import add from '@/components/add'
+import threshold from '@/components/threshold'
+import api from '@/components/api'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 Vue.use(ElementUI)
@@ -31,6 +33,17 @@ export default new Router({
       path: '/add',
       name: 'add',
       component: add
+    },
+    {
+      path: '/threshold',
+      name: 'threshold',
+      component: threshold
+    },
+    {
+      path: '/api',
+      name: 'api',
+      component: api
     }
+
   ]
 })
