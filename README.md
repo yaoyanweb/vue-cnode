@@ -44,7 +44,7 @@ Vue.js打造一个开源的CNode社区，实现了浏览、发帖、新手入门
 
 个人网站：👉 [www.yaoweb.cn](http://www.yaoweb.cn/)
 
-GitHub：👉 [microzz](https://github.com/yaoyanweb/vue-cnode)
+GitHub：👉 [yaoyanweb](https://github.com/yaoyanweb/vue-cnode)
 
 ## Build Setup
 
